@@ -1,0 +1,34 @@
+<button
+  [id]="id"
+  [type]="type"
+  (onClick)="onButtonClick()"
+  [disabled]="disabled || loading"
+  [ngClass]="{'btn-disabled': disabled || loading}"
+  class="default-primary-btn">
+
+  <div class="container-button" [ngClass]="{'reverse': iconRight}">
+    <ng-container *ngIf="loading">
+      <div class="default-loading-btn">
+        <div class="spinner-btn">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!loading">
+      <span>{{text}}</span>
+
+      <ng-container *ngIf="showIcon && classIcon">
+        <i [class]="classIcon"></i>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <span [class.no-opacity]="loading">
+    <ng-content></ng-content>
+  </span>
+</button>

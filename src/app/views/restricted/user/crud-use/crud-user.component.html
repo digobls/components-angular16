@@ -1,0 +1,193 @@
+<section class="col-12 container-user">
+  <div class="col-12 box-rounded-white">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="title">{{userId ? 'Editar usuário' : 'Cadastro de usuário'}}</h1>
+        <p class="description">Aqui você adiciona e configura os usuários</p>
+      </div>
+
+      <div class="col-12 col-md-6 offset-top-20">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'fullName'"
+          [name]="'fullName'"
+          [type]="'text'"
+          [label]="'Nome completo'"
+          [placeholder]="'Nome completo'"
+          [iconClass]="'ri-search-line'"
+          [showLabel]="true"
+          [showRequiredLabel]="true"
+          [isRequired]="true">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-20">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'email'"
+          [name]="'email'"
+          [type]="'text'"
+          [label]="'Email'"
+          [placeholder]="'Email'"
+          [showLabel]="true"
+          [showRequiredLabel]="true"
+          [isRequired]="true">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'phone'"
+          [name]="'phone'"
+          [type]="'text'"
+          [mask]="'(00) 0000-0000||(00) 00000-0000'"
+          [label]="'Telefone'"
+          [placeholder]="'Telefone'"
+          [showLabel]="true"
+          [showRequiredLabel]="true"
+          [isRequired]="true">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'documentNumber'"
+          [name]="'documentNumber'"
+          [type]="'text'"
+          [mask]="'000.000.000-00||00.000.000/0000-00'"
+          [label]="'CPF ou CNPJ'"
+          [placeholder]="'CPF ou CNPJ'"
+          [showLabel]="true"
+          [showRequiredLabel]="true"
+          [isRequired]="true">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'dateBirthday'"
+          [name]="'dateBirthday'"
+          [type]="'date'"
+          [label]="'Data de nascimento'"
+          [placeholder]="'Data de nascimento'"
+          [showLabel]="true"
+          [showRequiredLabel]="true"
+          [isRequired]="true">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'remuneration'"
+          [name]="'remuneration'"
+          [type]="'currency'"
+          [label]="'Remuneração'"
+          [placeholder]="'Remuneração'"
+          [disabled]="false"
+          [showLabel]="true"
+          [isRequired]="false">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'languages'"
+          [name]="'languages'"
+          [type]="'select'"
+          [label]="'Idiomas'"
+          [placeholder]="'Idiomas'"
+          [loadingData]="loadingLanguages"
+          [listDrop]="listLanguages"
+          [bindLabel]="'name'"
+          [bindValue]="'id'"
+          [searchSelect]="true"
+          [multiple]="true"
+          [showLabel]="true"
+          [isRequired]="false">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'role'"
+          [name]="'role'"
+          [type]="'select'"
+          [label]="'Perfil de acesso'"
+          [placeholder]="'Perfil de acesso'"
+          [loadingData]="loadingRoles"
+          [listDrop]="listRoles"
+          [bindLabel]="'name'"
+          [multiple]="false"
+          [showLabel]="true"
+          [isRequired]="false">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'gender'"
+          [name]="'gender'"
+          [type]="'radio'"
+          [label]="'Sexo'"
+          [radioItems]="listGender"
+          [displayInline]="true"
+          [showLabel]="true"
+          [isRequired]="false">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-6 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'tags'"
+          [name]="'tags'"
+          [type]="'tag'"
+          [label]="'Habilidades'"
+          [placeholder]="'Preencha suas habilidades'"
+          [disabled]="false"
+          [showLabel]="true"
+          [isRequired]="false">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-12 offset-top-10">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'description'"
+          [name]="'description'"
+          [type]="'textarea'"
+          [label]="'Descrição'"
+          [placeholder]="'Descrição'"
+          [disabled]="false"
+          [showLabel]="true"
+          [isRequired]="false">
+        </app-input-type>
+      </div>
+      <div class="col-12 col-md-12 offset-top-20">
+        <app-input-type
+          [formGroup]="formUser"
+          [id]="'terms'"
+          [name]="'terms'"
+          [type]="'checkbox'"
+          [labelCheckbox]="'Li e aceito os'"
+          [subCheckboxLabel]="'termos de uso.'"
+          [labelLink]="'https://google.com.br'"
+          [showRequiredLabel]="true"
+          [displayInline]="false"
+          [showLabel]="false"
+          [isRequired]="true">
+        </app-input-type>
+      </div>
+      <div class="container-btn-bottom offset-top-10">
+        <button (click)="cancel()" [disabled]="loadingSend" class="button-default btn-transparent">
+          <span>Cancelar</span>
+        </button>
+        <app-default-button
+          [id]="'registerUser'"
+          [text]="userId ? 'Salvar alterações' : 'Cadastrar'"
+          [type]="'button'"
+          [loading]="loadingSend"
+          [disabled]="loadingSend"
+          (click)="checkChange()">
+        </app-default-button>
+      </div>
+    </div>
+  </div>
+</section>

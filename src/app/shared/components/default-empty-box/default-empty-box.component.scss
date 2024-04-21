@@ -1,0 +1,77 @@
+$title-color: #212529;
+$text-color: #58535e;
+$font-size: 14px;
+$color-button: #2f23d6;
+$border-color: #2f23d6;
+
+.container-empty-box {
+  text-align: center;
+
+  .box-rounded-white {
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 14px 20px 18px;
+    box-shadow: 0 4px 18px rgba(47, 43, 61, .1), 0 0 transparent, 0 0 transparent;
+  }
+
+  .remove-shadow {
+    box-shadow: unset;
+  }
+
+  .box-max-width {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .title-box {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 24px;
+    color: $title-color;
+    text-align: center;
+    margin: 20px 0 20px;
+  }
+
+  .description-txt {
+    font-size: 16px;
+    width: 100%;
+    margin: 0 0 20px;
+    font-style: normal;
+    font-weight: 400;
+    color: $text-color;
+    display: block;
+
+    a {
+      color: $color-button;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  .default-primary-btn {
+    position: relative;
+    background: $color-button;
+    border: 1px solid $border-color;
+    color: #fff;
+    width: auto;
+    padding: 0 12px;
+    min-width: 120px;
+    height: 38px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 8px;
+
+    span {
+      font-size: $font-size;
+      font-weight: 500;
+    }
+
+    &:hover, &:active, &:focus, &:focus-visible {
+      text-decoration: none;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    }
+  }
+}

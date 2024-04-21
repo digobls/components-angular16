@@ -1,0 +1,19 @@
+<ng-container *ngIf="!loadingData">
+  <div class="container-empty-box">
+    <div class="box-rounded-white" [ngClass]="{'remove-shadow': removeShadow}">
+      <div class="box-max-width">
+        <h4 class="title-box">{{title}}</h4>
+
+        <p *ngIf="link && description" class="description-txt">{{description}}, <a [routerLink]="link">{{textLink}}</a> <span *ngIf="descriptionContinue">{{descriptionContinue}}</span></p>
+        <p *ngIf="!link && description" class="description-txt">{{description}}</p>
+        <p *ngIf="!link && descriptionHtml" [innerHTML]="descriptionHtml" class="description-txt"></p>
+
+        <ng-container *ngIf="textBtn">
+          <button (click)="sendAction()" class="default-primary-btn">
+            <span>{{textBtn}}</span>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

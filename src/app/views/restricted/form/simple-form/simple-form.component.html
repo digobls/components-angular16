@@ -1,0 +1,305 @@
+<section class="col-12">
+  <div class="row">
+    <div class="col-12">
+      <h1>Elementos de formulários simples.</h1>
+      <hr>
+    </div>
+
+    <div class="col-12 offset-top-20 offset-bottom-80">
+      <div class="col-12 box-rounded-white">
+        <div class="row">
+          <div class="col-12 content-buttons offset-top-10">
+            <button (click)="setDataForm()" class="simple-btn">Preencher Formulário</button>
+            <button (click)="resetForm()" class="simple-btn">Resetar Formulário</button>
+            <button (click)="disableForm()" class="simple-btn">{{isDisable ? 'Habilitar' : 'Desabilitar'}} Formulário</button>
+            <button (click)="checkForm()" class="simple-btn">Verificar Formulário</button>
+          </div>
+          <div class="col-12 offset-top-10">
+            <h2>Tipos de inputs e validações</h2>
+            <hr/>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'name'"
+              [name]="'name'"
+              [type]="'text'"
+              [label]="'Nome'"
+              [placeholder]="'Texto'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'email'"
+              [name]="'email'"
+              [type]="'text'"
+              [label]="'Email'"
+              [placeholder]="'Email e validação'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'phone'"
+              [name]="'phone'"
+              [type]="'text'"
+              [mask]="'(00) 0000-0000||(00) 00000-0000'"
+              [label]="'Telefone'"
+              [placeholder]="'Telefone e mascara'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'documentNumber'"
+              [name]="'documentNumber'"
+              [type]="'text'"
+              [mask]="'000.000.000-00||00.000.000/0000-00'"
+              [label]="'CPF ou CNPJ'"
+              [placeholder]="'Documento mascara e validação'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'dateMask'"
+              [name]="'dateMask'"
+              [type]="'text'"
+              [mask]="'00/00/0000'"
+              [label]="'Data'"
+              [placeholder]="'Data mascara'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [showRequiredLabel]="true"
+              [id]="'date'"
+              [name]="'date'"
+              [type]="'date'"
+              [label]="'Data'"
+              [placeholder]="'Data simples'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [showRequiredLabel]="true"
+              [linkTxt]="'link'"
+              [linkUrl]="'link'"
+              [id]="'password1'"
+              [name]="'password1'"
+              [type]="'password'"
+              [label]="'Password'"
+              [placeholder]="'Password'"
+              [iconInputClass]="'ri-eye-line'"
+              [disabled]="isDisable"
+              [onRight]="false"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'password2'"
+              [name]="'password2'"
+              [type]="'password'"
+              [label]="'Password'"
+              [placeholder]="'Password'"
+              [iconInputClass]="'ri-eye-line'"
+              [disabled]="isDisable"
+              [onRight]="true"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'language'"
+              [name]="'language'"
+              [type]="'select'"
+              [label]="'Dropdown simples'"
+              [placeholder]="'Selecione uma opção'"
+              [bindLabel]="'name'"
+              [bindValue]="'id'"
+              [listDrop]="listLanguages"
+              [loadingData]="loadingLanguages"
+              [searchSelect]="false"
+              [disabled]="isDisable"
+              [multiple]="false"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'options'"
+              [name]="'options'"
+              [type]="'select'"
+              [label]="'Dropdown simples com pesquisa'"
+              [placeholder]="'Selecione uma opção'"
+              [listDrop]="listNames"
+              [loadingData]="loadingName"
+              [searchSelect]="true"
+              [disabled]="isDisable"
+              [multiple]="false"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'roles'"
+              [name]="'roles'"
+              [type]="'select'"
+              [label]="'Dropdown multiplo'"
+              [placeholder]="'Selecione'"
+              [bindLabel]="'name'"
+              [loadingData]="loadingRoles"
+              [listDrop]="listRoles"
+              [disabled]="isDisable"
+              [multiple]="true"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'tags'"
+              [name]="'tags'"
+              [type]="'tag'"
+              [label]="'Tags'"
+              [placeholder]="'Preencha as tags'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-6 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'money'"
+              [name]="'money'"
+              [type]="'currency'"
+              [label]="'Dinheiro'"
+              [placeholder]="'Preencha um valor'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-12 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'description'"
+              [name]="'description'"
+              [type]="'textarea'"
+              [label]="'Descrição'"
+              [placeholder]="'Descrição'"
+              [disabled]="isDisable"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-12 offset-top-10">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'switch'"
+              [name]="'switch'"
+              [type]="'switch'"
+              [label]="'Switch'"
+              [disabled]="isDisable">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-12 offset-top-20">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'checkbox'"
+              [name]="'checkbox'"
+              [type]="'checkbox'"
+              [label]="'Checkbox'"
+              [labelCheckbox]="'Confirmar'"
+              [subCheckboxLabel]="'termos de uso'"
+              [labelLink]="'https://google.com.br'"
+              [disabled]="isDisable"
+              [showRequiredLabel]="true"
+              [displayInline]="false"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-12 offset-top-20">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'checkboxList'"
+              [name]="'checkboxList'"
+              [type]="'checkbox'"
+              [label]="'Checkbox list'"
+              [checkItems]="listTypeContact"
+              [disabled]="isDisable"
+              [showRequiredLabel]="true"
+              [displayInline]="true"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-12 offset-top-20">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'radio'"
+              [name]="'radio'"
+              [type]="'radio'"
+              [label]="'Radio lista horizontal'"
+              [radioItems]="listTypeContact"
+              [disabled]="isDisable"
+              [displayInline]="true"
+              [showRequiredLabel]="true"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+          <div class="col-12 col-md-12 offset-top-20">
+            <app-input-type
+              [formGroup]="formUser"
+              [id]="'radioList'"
+              [name]="'radioList'"
+              [type]="'radio'"
+              [label]="'Radio lista vertical'"
+              [radioItems]="listTypeContact"
+              [disabled]="isDisable"
+              [displayInline]="false"
+              [showRequiredLabel]="true"
+              [showLabel]="true"
+              [isRequired]="true">
+            </app-input-type>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

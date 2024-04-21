@@ -1,0 +1,44 @@
+.list-user {
+
+  .container-filter-new-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .container-filter {
+      display: flex;
+      gap: 10px;
+      flex-direction: row;
+
+      .form-group {
+        min-width: 120px;
+
+        &:first-of-type {
+          width: 240px;
+        }
+      }
+    }
+
+    .container-btn {
+      display: block;
+      margin: 0 0 0 auto;
+
+      .btn-new-user {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 6px;
+        border: 1px solid #2f23d6;
+        background: #2f23d6;
+        font-size: 14px;
+        height: 38px;
+        line-height: 36px;
+        min-width: 140px;
+        padding: 0 10px;
+      }
+    }
+  }
+}

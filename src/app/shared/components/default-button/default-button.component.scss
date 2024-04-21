@@ -1,0 +1,114 @@
+$color-button: #2f23d6;
+$border-color: #2f23d6;
+$font-size: 14px;
+
+.default-primary-btn {
+  position: relative;
+  background: $color-button;
+  border: 1px solid $border-color;
+  color: #fff;
+  width: 100%;
+  min-width: 120px;
+  height: 38px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+
+  span {
+    font-size: $font-size;
+    font-weight: 500;
+  }
+
+  i {
+    font-size: 14px;
+    position: relative;
+    top: 1px;
+  }
+
+  .container-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      margin-left: 4px;
+    }
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+
+    i {
+      margin-right: 4px;
+      margin-left: 0;
+    }
+  }
+
+  &:hover, &:active, &:focus, &:focus-visible {
+    text-decoration: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  }
+}
+
+.btn-disabled {
+  cursor: no-drop;
+  opacity: 0.6;
+}
+
+.default-loading-btn {
+  height: 28px;
+  transition: 0.2s;
+
+  .spinner-btn {
+    position: relative;
+    top: 4px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+
+    .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+
+    .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+
+    .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+
+    > div {
+      margin-right: 4px;
+      background-color: #D5DFEB;
+      width: 4px;
+      height: 20px;
+      display: inline-block;
+      -webkit-animation: sk-btn-loading-default 1.2s infinite ease-in-out;
+      animation: sk-btn-loading-default 1.2s infinite ease-in-out;
+    }
+  }
+}
+
+@-webkit-keyframes sk-btn-loading-default {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-btn-loading-default {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+       transform: scaleY(1.0);
+       -webkit-transform: scaleY(1.0);
+     }
+}

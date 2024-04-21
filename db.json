@@ -1,0 +1,415 @@
+{
+  "users": [
+    {
+      "id": "2878",
+      "fullName": "Rodrigo Pereira",
+      "email": "digo.bls@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 15000,
+      "languages": [
+        {
+          "name": "Português BR",
+          "id": "c4c7"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript",
+        "css"
+      ],
+      "description": "sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2879",
+      "fullName": "Rodrigo Ferreira",
+      "email": "teste@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 14000,
+      "languages": [
+        {
+          "name": "Português BR",
+          "id": "c4c7"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 2,
+        "name": "Feminino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2830",
+      "fullName": "Andressa Ferreira",
+      "email": "andressa@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 12000,
+      "languages": [
+        {
+          "name": "Português BR",
+          "id": "c4c7"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2819",
+      "fullName": "Bruna Peixoto",
+      "email": "bruna@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1995-07-22",
+      "remuneration": 1000,
+      "languages": [
+        {
+          "name": "Português BR",
+          "id": "c4c7"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 2,
+        "name": "Feminino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "1879",
+      "fullName": "Fernado Pereira",
+      "email": "fernando_nando@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-08-22",
+      "remuneration": 11000,
+      "languages": [
+        {
+          "name": "Português BR",
+          "id": "c4c7"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2479",
+      "fullName": "Eduardo da Silva",
+      "email": "dudubls@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 11000,
+      "languages": [
+        {
+          "name": "Português BR",
+          "id": "c4c7"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2876",
+      "fullName": "Guilherme Santos",
+      "email": "santos_gui@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 14000,
+      "languages": [
+        {
+          "name": "Alemão DE",
+          "id": "e47e"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2276",
+      "fullName": "Rafael Santos",
+      "email": "rafa@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 14000,
+      "languages": [
+        {
+          "name": "Alemão DE",
+          "id": "e47e"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "2176",
+      "fullName": "Rodrigo Santos",
+      "email": "rodriguinho@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 14000,
+      "languages": [
+        {
+          "name": "Árabe AR",
+          "id": "15f5"
+        }
+      ],
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "gender": {
+        "id": 1,
+        "name": "Masculino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    },
+    {
+      "id": "1176",
+      "fullName": "Carolina Ribeiro",
+      "email": "carol_ribeiro@hotmail.com",
+      "phone": "41999940776",
+      "documentNumber": "80547773021",
+      "dateBirthday": "1991-07-22",
+      "remuneration": 14000,
+      "languages": [
+        {
+          "name": "Alemão DE",
+          "id": "e47e"
+        }
+      ],
+      "role": {
+        "name": "Francês FR",
+        "id": "fcbc"
+      },
+      "gender": {
+        "id": 2,
+        "name": "Feminino"
+      },
+      "tags": [
+        "Angular",
+        "Javascript",
+        "CSS",
+        "HTML"
+      ],
+      "description": "Sem descrição",
+      "terms": true,
+      "createAt": "2024-04-14T20:13:56.885Z"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Alemão DE",
+      "id": "e47e"
+    },
+    {
+      "name": "Árabe AR",
+      "id": "15f5"
+    },
+    {
+      "name": "Bengali BD",
+      "id": "9b31"
+    },
+    {
+      "name": "Chinês CN",
+      "id": "ae57"
+    },
+    {
+      "name": "Coreano KR",
+      "id": "a93e"
+    },
+    {
+      "name": "Espanhol ES",
+      "id": "7403"
+    },
+    {
+      "name": "Francês FR",
+      "id": "fcbc"
+    },
+    {
+      "name": "Hindi IN",
+      "id": "18f6"
+    },
+    {
+      "name": "Indonésio ID",
+      "id": "72fe"
+    },
+    {
+      "name": "Inglês EN",
+      "id": "6d44"
+    },
+    {
+      "name": "Italiano IT",
+      "id": "4c4f"
+    },
+    {
+      "name": "Japonês JP",
+      "id": "6f71"
+    },
+    {
+      "name": "Malaio MY",
+      "id": "38a9"
+    },
+    {
+      "name": "Polonês PL",
+      "id": "de03"
+    },
+    {
+      "name": "Português BR",
+      "id": "c4c7"
+    },
+    {
+      "name": "Russo RU",
+      "id": "48a2"
+    },
+    {
+      "name": "Tailandês TH",
+      "id": "5fd2"
+    },
+    {
+      "name": "Turco TR",
+      "id": "ec55"
+    },
+    {
+      "name": "Ucraniano UA",
+      "id": "5760"
+    },
+    {
+      "name": "Vietnamita VN",
+      "id": "fc4b"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Administrador"
+    },
+    {
+      "id": "2",
+      "name": "Analista"
+    },
+    {
+      "id": "3",
+      "name": "Assistente"
+    },
+    {
+      "id": "4",
+      "name": "Cordenador"
+    },
+    {
+      "id": "5",
+      "name": "Gerente"
+    },
+    {
+      "id": "6",
+      "name": "Surpervisor"
+    }
+  ]
+}

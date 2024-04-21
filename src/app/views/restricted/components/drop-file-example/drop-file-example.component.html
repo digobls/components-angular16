@@ -1,0 +1,129 @@
+<div class="col-12 box-rounded-white offset-top-20">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-title-description">
+        <h4>Dropfile</h4>
+        <p>Configurações aplicadas dentro do drop file</p>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'label'"
+            [name]="'label'"
+            [type]="'text'"
+            [label]="'Label'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'text'"
+            [name]="'text'"
+            [type]="'text'"
+            [label]="'Texto interno'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'acceptedExtensions'"
+            [name]="'acceptedExtensions'"
+            [type]="'text'"
+            [label]="'Extenções aceitas'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'type'"
+            [name]="'type'"
+            [type]="'radio'"
+            [label]="'Tipo de retorno'"
+            [radioItems]="listType"
+            [displayInline]="true"
+            [showLabel]="true"
+            [isRequired]="false">
+          </app-input-type>
+        </div>
+        <div class="col-12"></div>
+        <div class="col-2 offset-top-20">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'label'"
+            [name]="'label'"
+            [type]="'checkbox'"
+            [labelCheckbox]="'Visualizar label'"
+            [showLabel]="false"
+            [displayInline]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2 offset-top-20">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'showFiles'"
+            [name]="'showFiles'"
+            [type]="'checkbox'"
+            [labelCheckbox]="'Visualizar arquivos'"
+            [showLabel]="false"
+            [displayInline]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2 offset-top-20">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'singleFile'"
+            [name]="'singleFile'"
+            [type]="'checkbox'"
+            [labelCheckbox]="'Single file'"
+            [showLabel]="false"
+            [displayInline]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2 offset-top-20">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'directUpload'"
+            [name]="'directUpload'"
+            [type]="'checkbox'"
+            [labelCheckbox]="'Upload direto'"
+            [showLabel]="false"
+            [displayInline]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2 offset-top-20">
+          <app-input-type
+            [formGroup]="formDropFile"
+            [id]="'showIcon'"
+            [name]="'showIcon'"
+            [type]="'checkbox'"
+            [labelCheckbox]="'Visualizar icone'"
+            [showLabel]="false"
+            [displayInline]="true">
+          </app-input-type>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 offset-top-20">
+      <app-default-drop-file
+        [showLabel]="formDropFile.get('showLabel')?.value"
+        [showFiles]="formDropFile.get('showFiles')?.value"
+        [singleFile]="formDropFile.get('singleFile')?.value"
+        [directUpload]="formDropFile.get('directUpload')?.value"
+        [returnType]="formDropFile.get('type')?.value?.name"
+        [label]="formDropFile.get('label')?.value"
+        [text]="formDropFile.get('text')?.value"
+        [showIcon]="formDropFile.get('showIcon')?.value"
+        [acceptedExtensions]="formDropFile.get('acceptedExtensions')?.value"
+        [icon]="'ri-file-upload-line'"
+        (warningMessage)="showMessage($event)"
+        (dataFiles)="resultFiles($event)">
+      </app-default-drop-file>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="col-12 box-rounded-white offset-top-20">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-title-description">
+        <h4>Tabela</h4>
+        <p>Configurações aplicadas da tabela</p>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <app-default-simple-table
+        [listHeader]="listHeaderTable"
+        [listData]="listData"
+        [configPagination]="dataPagination"
+        [maxSize]="5"
+        [showChangeTotal]="true"
+        (changeListSort)="onListSort($event)"
+        (sendDataAction)="onAction($event)"
+        (changePage)="onChangePage($event)">
+      </app-default-simple-table>
+    </div>
+  </div>
+</div>

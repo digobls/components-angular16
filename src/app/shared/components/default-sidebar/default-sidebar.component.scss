@@ -1,0 +1,141 @@
+.default-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 74px;
+  z-index: 10;
+  background-color: var(--background-menu);
+  transition: width 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(47, 43, 61, 0.14), 0 0 transparent, 0 0 transparent;
+
+  .navbar-header {
+    padding: 0.35rem 1rem 0.3rem 1.64rem;
+    transition: 300ms ease all, background 0s;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .head-logo {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin-right: auto;
+
+        .navbar-brand {
+          display: block;
+          margin-top: 2rem;
+          margin-bottom: 0.5rem;
+          width: 100%;
+
+          .logo {
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+
+        .close-and-open-menu {
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          i {
+            cursor: pointer;
+            color: #2C2C2D;
+          }
+        }
+      }
+    }
+  }
+
+  .navigation {
+    list-style: none;
+    padding: 0 0 0.75rem;
+    margin: 20px 0 0 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    li {
+      position: relative;
+      white-space: nowrap;
+      outline: none;
+      margin-top: 0.5rem;
+
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        margin: 0 15px;
+        padding: 6px 10px 6px 13px;
+        border-radius: 6px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        align-items: center;
+        background-color: transparent;
+        transition: transform 0.25s ease;
+
+        i {
+          color: #474747;
+          margin-right: 8px;
+        }
+
+        span {
+          display: inline-block;
+          margin-top: 1px;
+          font-size: 14px;
+          color: #474747;
+          font-weight: 400;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        &:hover {
+          background: #192c70;
+
+          i, span {
+            color: #FFF;
+          }
+        }
+      }
+
+      .active {
+        background: #192c70;
+
+        i, span {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+.default-sidebar.expanded {
+  width: 200px;
+
+  .navbar-header {
+    ul {
+      .head-logo {
+        .navbar-brand {
+          .logo {
+            width: auto;
+            height: unset;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .default-sidebar {
+    width: 100%;
+  }
+}

@@ -1,0 +1,44 @@
+.container-user {
+  .title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+    display: block;
+    color: #504a6c;
+  }
+
+  .description {
+    color: #767481;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+
+  .container-btn-bottom {
+    display: block;
+    text-align: right;
+
+    .btn-transparent {
+      background: transparent;
+      border: 1px solid #2f23d6;
+      color: #2f23d6;
+      height: 38px;
+      font-size: 14px;
+      min-width: 120px;
+      cursor: pointer;
+      border-radius: 8px;
+      display: inline-block;
+      margin-right: 14px;
+      font-weight: 500;
+    }
+
+    app-default-button {
+      max-width: 140px;
+      display: inline-block;
+    }
+  }
+}

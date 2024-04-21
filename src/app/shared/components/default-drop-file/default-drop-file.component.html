@@ -1,0 +1,44 @@
+<div class="container-drop-file" eventUpload (fileDropped)="onFileDropped($event)">
+  <ng-container *ngIf="showLabel && label">
+    <label [innerText]="label" class="default-label"></label>
+  </ng-container>
+
+  <div class="container-drop">
+    <input #fileDropRef (click)="clearFileInput()" (change)="fileBrowseHandler($event)" multiple id="fileDropRef" type="file" class="hidden-input"/>
+
+    <i *ngIf="showIcon" [ngClass]="icon" class="file-icon"></i>
+
+    <h3 [ngClass]="{'offset-top-40': !showIcon}" class="title-box">{{text}}</h3>
+
+    <p *ngIf="description" class="text-description">{{description}}</p>
+    <label for="fileDropRef" class="btn-upload">
+      <span>{{textBtn}}</span>
+    </label>
+
+    <div class="content-info-drop">
+      <p> ou </p>
+      <p>arraste o arquivo</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showFiles" class="container-files-upload">
+  <div class="single-file" *ngFor="let file of files; let i = index">
+    <div class="file-icon">
+      <i class="ri-file-upload-line"></i>
+    </div>
+    <div class="info">
+      <p class="name">{{file?.name}} - <span [innerText]="formatBytes(file?.size, 0)" class="size"></span></p>
+      <div class="progress-cont">
+        <div class="progress" [style.width]="file?.progress + '%'"></div>
+      </div>
+    </div>
+    <div class="delete" (click)="deleteFile(i)">
+      <i class="ri-delete-bin-2-line"></i>
+    </div>
+  </div>
+
+  <div *ngIf="files?.length" class="container-btn">
+    <button (click)="uploadFilesSimulator()" class="send-files">{{textBtnUpload}}</button>
+  </div>
+</div>

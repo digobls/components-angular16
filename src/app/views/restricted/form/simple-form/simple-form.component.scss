@@ -1,0 +1,24 @@
+.offset-bottom-80 {
+  margin-bottom: 80px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.content-buttons {
+  text-align: right;
+
+  .simple-btn {
+    background: transparent;
+    border: 1px solid #2f23d6;
+    color: #2f23d6;
+    cursor: pointer;
+    min-width: 120px;
+    height: 38px;
+    display: inline-block;
+    margin-left: 14px;
+    border-radius: 6px;
+  }
+}

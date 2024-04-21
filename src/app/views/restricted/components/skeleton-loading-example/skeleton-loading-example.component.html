@@ -1,0 +1,82 @@
+<div class="col-12 box-rounded-white offset-top-20">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-title-description">
+        <h4>Skeleton loading</h4>
+        <p>Configurações aplicadas dentro do skeleton loading</p>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formSkeleton"
+            [id]="'width'"
+            [name]="'width'"
+            [type]="'text'"
+            [label]="'Largura'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formSkeleton"
+            [id]="'height'"
+            [name]="'height'"
+            [type]="'text'"
+            [label]="'Altura'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formSkeleton"
+            [id]="'margin'"
+            [name]="'margin'"
+            [type]="'text'"
+            [label]="'Margem'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-3">
+          <app-input-type
+            [formGroup]="formSkeleton"
+            [id]="'display'"
+            [name]="'display'"
+            [type]="'radio'"
+            [label]="'Tipo'"
+            [radioItems]="listDisplay"
+            [displayInline]="true"
+            [showLabel]="true"
+            [isRequired]="false">
+          </app-input-type>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 offset-top-20">
+      <label>Custom</label>
+      <app-skeleton-loading
+        [type]="'type'"
+        [height]="formSkeleton.get('height')?.value"
+        [width]="formSkeleton.get('width')?.value"
+        [margin]="formSkeleton.get('margin')?.value"
+        [display]="formSkeleton.get('display')?.value?.name">
+      </app-skeleton-loading>
+      <app-skeleton-loading
+        [type]="'type'"
+        [height]="formSkeleton.get('height')?.value"
+        [width]="formSkeleton.get('width')?.value"
+        [margin]="formSkeleton.get('margin')?.value"
+        [display]="formSkeleton.get('display')?.value?.name">
+      </app-skeleton-loading>
+    </div>
+
+    <div class="col-12 offset-top-20">
+      <label>Table</label>
+      <app-skeleton-loading
+        [type]="'table'"
+        [totalRepeat]="10">
+      </app-skeleton-loading>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+// ngb bootstrap
+//.container-pagination {
+//  display: block;
+//  margin-top: 20px;
+//  position: relative;
+//
+//  .pagination {
+//    justify-content: center;
+//    align-items: center;
+//
+//    .page-item {
+//      .page-link {
+//        text-align: center;
+//        background: #fff;
+//        border-radius: 8px;
+//        margin: 0 2px;
+//        min-width: 38px;
+//        color: var(--color-default-p);
+//        font-size: 16px;
+//        font-weight: 600;
+//
+//        &:focus {
+//          box-shadow: none;
+//        }
+//      }
+//    }
+//
+//    .active {
+//      background: transparent;
+//
+//      .page-link {
+//        background: #2f23d6;
+//        border-radius: 8px;
+//        color: #fff;
+//        border: none;
+//      }
+//    }
+//
+//    .disabled {
+//      cursor: no-drop;
+//
+//      .page-link {
+//        color: #969696;
+//      }
+//    }
+//  }
+//
+//  .container-items-per-page {
+//    position: absolute;
+//    top: 0;
+//    right: 0;
+//
+//    .data-page {
+//      background: #fff;
+//      border: 1px solid #dee2e6;
+//      height: 36px;
+//      line-height: 34px;
+//      border-radius: 6px;
+//      padding: 0 8px;
+//      width: auto;
+//      max-width: 170px;
+//      text-align: center;
+//      cursor: pointer;
+//      box-shadow: 0 4px 18px rgba(47, 43, 61, 0.1), 0 0 transparent, 0 0 transparent;
+//
+//      span {
+//        font-size: 14px;
+//        display: inline-block;
+//        margin-right: 4px;
+//        font-weight: 600;
+//        color: var(--color-default-p);
+//      }
+//
+//      i {
+//        font-size: 14px;
+//        color: var(--color-default-p);
+//        font-weight: 600;
+//      }
+//    }
+//
+//    .list-total-page {
+//      position: absolute;
+//      left: 0;
+//      top: 40px;
+//      background: #fff;
+//      width: 100%;
+//      max-width: 170px;
+//      text-align: center;
+//      border-radius: 6px;
+//      box-shadow: 0 4px 18px rgba(47, 43, 61, 0.1), 0 0 transparent, 0 0 transparent;
+//
+//      span {
+//        display: block;
+//        height: 38px;
+//        line-height: 36px;
+//        font-size: 14px;
+//        cursor: pointer;
+//        font-weight: 600;
+//        color: var(--color-default-p);
+//      }
+//    }
+//
+//    .view-list {
+//      display: block;
+//    }
+//
+//    .hidden-list {
+//      display: none;
+//    }
+//  }
+//}

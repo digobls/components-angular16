@@ -1,0 +1,32 @@
+<div class="list-user">
+  <div class="col-12">
+    <div class="container-filter-new-user">
+      <div class="container-btn">
+        <a [routerLink]="['/usuario/cadastro']" class="btn-new-user">Novo usuário</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 box-rounded-white">
+    <ng-container *ngIf="!loadingList && listUsers?.length">
+      <app-default-simple-table
+        [listHeader]="listHeaderTable"
+        [listData]="listUsers"
+        [configPagination]="dataPagination"
+        [maxSize]="5"
+        [showChangeTotal]="true"
+        (sendDataAction)="onAction($event)"
+        (changePage)="onChangePage($event)">
+      </app-default-simple-table>
+    </ng-container>
+
+    <ng-container *ngIf="!loadingList && !listUsers?.length">
+      <div class="container-empty">
+        <p>Nenhum usuário cadastrado</p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="loadingList">
+
+    </ng-container>
+  </div>
+</div>

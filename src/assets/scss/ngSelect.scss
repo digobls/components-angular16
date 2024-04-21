@@ -1,0 +1,117 @@
+//.ng-select {
+//  width: 100%;
+//  height: 40px;
+//  box-sizing: border-box;
+//  display: block;
+//  padding: 8px;
+//  font-style: normal;
+//  font-weight: 500;
+//  font-size: 14px;
+//  background-clip: padding-box;
+//  outline: unset !important;
+//  box-shadow: unset;
+//  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+//  border-radius: 6px;
+//
+//  .ng-select-container {
+//    .ng-value-container {
+//      .ng-placeholder {
+//        color: #717078;
+//      }
+//    }
+//
+//    .ng-arrow-wrapper {
+//      width: 20px;
+//
+//      .ng-arrow {
+//        font-size: 14px;
+//        margin-right: 10px;
+//        font-weight: bold;
+//        font-family: 'remixicon' !important;
+//        font-style: normal;
+//        -webkit-font-smoothing: antialiased;
+//        -moz-osx-font-smoothing: grayscale;
+//
+//        &:before {
+//          content: "\ea4e";
+//        }
+//      }
+//    }
+//  }
+//
+//  .ng-has-value {
+//    .ng-placeholder {
+//      display: none;
+//    }
+//
+//    .ng-arrow-wrapper {
+//      &:last-of-type {
+//        display: none;
+//      }
+//    }
+//  }
+//
+//  .ng-dropdown-panel {
+//    background: #fff;
+//    left: 0;
+//    bottom: -32px;
+//    padding: 0;
+//    box-shadow: 0 4px 18px rgba(47, 43, 61, .1), 0 0 transparent, 0 0 transparent;
+//
+//    .ng-dropdown-panel-items {
+//      .scrollable-content {
+//        .ng-option {
+//          background: #fff;
+//          height: 30px;
+//          line-height: 28px;
+//          padding: 0 12px;
+//
+//          .ng-option-label {
+//            color: #212529;
+//          }
+//
+//          &:hover {
+//            background: #eee;
+//          }
+//        }
+//      }
+//
+//      .ng-option-disabled {
+//        background: #fff;
+//        height: 30px;
+//        line-height: 28px;
+//        padding: 0 12px;
+//        cursor: no-drop;
+//
+//        .ng-option-label {
+//          color: #212529;
+//        }
+//
+//        &:hover {
+//          background: #eee;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//.ng-select-multiple {
+//  .ng-select-container {
+//    .ng-value-container {
+//      .ng-value {
+//        direction: rtl;
+//        margin-right: 4px;
+//        background: #e8f0fe;
+//        padding: 2px 8px 3px;
+//        border-radius: 10px;
+//        color: #1d262d;
+//
+//        .ng-value-icon {
+//          margin-left: 4px;
+//          cursor: pointer;
+//          color: #464a52;
+//        }
+//      }
+//    }
+//  }
+//}

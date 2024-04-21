@@ -1,0 +1,202 @@
+<div [formGroup]="formGroup" class="input-type" [ngClass]="{'content-input-icon': iconInputClass, 'invalid-box': (control.errors || control.invalid && (control.dirty || control.touched))}">
+  <label *ngIf="showLabel" class="default-label-input">
+    {{label}}
+
+    <span *ngIf="isRequired && showRequiredLabel" class="required-alert">*</span>
+
+    <ng-container *ngIf="labelInfo">
+      <span class="custom-tooltip-info">
+        <i [class]="labelIcon"></i>
+        <small>{{labelInfo}}</small>
+      </span>
+    </ng-container>
+
+    <ng-container *ngIf="linkTxt && linkUrl">
+      <a [href]="linkUrl" [target]="linkTarget" class="link">{{linkTxt}}</a>
+    </ng-container>
+  </label>
+
+  <!-- Input type text, number, date, password -->
+  <ng-container *ngIf="type === 'text' || type === 'number' || type === 'date' || type === 'password' || type === 'email'">
+    <input [id]="id"
+           [name]="name"
+           [formControlName]="id"
+           [type]="type"
+           [readOnly]="disabled"
+           [placeholder]="placeholder"
+           [class]="'custom-default-input'"
+           [ngClass]="onRight ? 'on-right' : 'on-left'"
+           [mask]="mask || ''"/>
+  </ng-container>
+
+  <!-- Input type Select, Dropdown and Drop multiple -->
+  <ng-container *ngIf="type === 'select'">
+    <div class="custom-dropdown">
+      <div class="container-drop-view" [ngClass]="{'container-drop-multiple-view': multiple}">
+        <button
+          [id]="'btn' + id"
+          [disabled]="disabled"
+          [class]="'new-dropdown-toggle'"
+          (focus)="onFocusTouchedDirty()"
+          (click)="toggleDropdown()">
+
+          <span *ngIf="!valueDropSelected || (!valueDropSelected?.length && multiple)" class="content-placeholder">{{placeholder}}</span>
+
+          <ng-container *ngIf="!multiple && valueDropSelected">
+            <span *ngIf="!bindLabel" [innerText]="valueDropSelected" class="content-value"></span>
+            <span *ngIf="bindLabel" [innerText]="valueDropSelected[bindLabel]" class="content-value"></span>
+            <input [id]="'single' + id" [name]="name" [formControlName]="id" class="input-hidden">
+          </ng-container>
+
+          <ng-container *ngIf="multiple && valueDropSelected">
+            <div *ngFor="let data of valueDropSelected; let index = index;" class="content-multiple-item">
+              <span *ngIf="!bindLabel" class="content-value">{{data}}</span>
+              <span *ngIf="bindLabel" class="content-value">{{data[bindLabel]}}</span>
+              <i *ngIf="!disabled" (click)="removeValueMultiple(index)" class="ri-close-line icon-remove"></i>
+              <input [id]="'multiple' + id" [name]="name" [formControlName]="id" class="input-hidden">
+            </div>
+          </ng-container>
+
+          <i *ngIf="!valueDropSelected || (!valueDropSelected?.length && multiple)" [ngClass]="iconDrop" class="content-icon-drop"></i>
+          <span *ngIf="loadingData" class="content-loading-data"></span>
+        </button>
+
+        <i *ngIf="(valueDropSelected && !multiple) || (valueDropSelected?.length && multiple)" (click)="removeDropValue()" [ngClass]="iconRemove" class="content-icon-remove"></i>
+        <div *ngIf="disabled" class="disable-content"></div>
+      </div>
+
+      <ul *ngIf="dropdownOpen" [id]="'drop' + id" [ngClass]="{'d-block': dropdownOpen}" class="dropdown-menu" >
+        <input *ngIf="searchSelect"
+               id="searchDrop"
+               [(ngModel)]="valueSearchDrop"
+               [ngModelOptions]="{standalone: true}"
+               [placeholder]="placeHolderSearchSelect"
+                class="input-search">
+        <li *ngFor="let option of listDrop | searchDropDown: valueSearchDrop: bindLabel" (click)="selectOption(option)" class="item">
+          <ng-container *ngIf="option !== 'isEmptySearch'">
+            <span *ngIf="!bindLabel" >{{ option }}</span>
+            <span *ngIf="bindLabel" >{{ option[bindLabel] }}</span>
+          </ng-container>
+          <span *ngIf="option === 'isEmptySearch'" [innerText]="txtSearchEmpty">{{ option }}</span>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <!-- Input type tag -->
+  <ng-container *ngIf="type === 'tag'">
+    <div class="custom-input-tag" (click)="onFocusTagInput()" [ngClass]="{'disable-input-tag': disabled}">
+      <p class="tag-item" *ngFor="let tag of listTags; let index = index;">
+        <span [innerText]="tag"></span>
+        <i *ngIf="showRemoveTag && !disabled" (click)="removeValueTag(index)" [class]="iconRemove" class="remove-tag"></i>
+      </p>
+      <input [id]="id" [name]="name" [formControlName]="id" type="text" class="input-hidden" [ngClass]="{'empty-container': disabled}">
+      <ng-container *ngIf="!disabled">
+        <input #tagInput
+               type="text"
+               id="defaultTag"
+               name="default-tag"
+               class="input-tag"
+               [placeholder]="placeholder"
+               [formControl]="defaultTagFormControl"
+               (keyup)="onKeyUp($event)"
+               (keydown)="onKeyDown($event)"
+               (focusout)="onKeyDown('', 'focusout')"
+               [readOnly]="disabled">
+      </ng-container>
+      <ng-container *ngIf="disabled && !control?.value?.length">
+        <span class="placeholder">{{placeholder}}</span>
+      </ng-container>
+      <!--<div *ngIf="disa>bled" class="disable-tags"></div>-->
+    </div>
+  </ng-container>
+
+  <!-- Currency -->
+  <ng-container *ngIf="type === 'currency'">
+    <input currencyMask
+           [id]="name"
+           [name]="name"
+           [formControlName]="name"
+           [type]="type"
+           [placeholder]="placeholder"
+           [class]="'custom-default-input'"
+           [readOnly]="disabled"
+           [options]="{prefix: prefix, thousands: thousands,
+           decimal: decimal, align: align, allowNegative: allowNegative,
+           allowZero: allowZero, suffix: suffix, nullable: nullable}"/>
+  </ng-container>
+
+  <!-- Textarea -->
+  <ng-container *ngIf="type === 'textarea'">
+    <textarea [id]="id"
+              [name]="name"
+              [readOnly]="disabled"
+              [formControlName]="id"
+              [placeholder]="placeholder"
+              [class]="'custom-default-textarea'">
+    </textarea>
+  </ng-container>
+
+  <!-- Switch -->
+  <ng-container *ngIf="type === 'switch'">
+    <div class="custom-switch" [ngClass]="{'force-switch-disable': disabled}">
+      <input [id]="id" [formControlName]="id" [readOnly]="disabled"  type="checkbox" class="switch">
+    </div>
+  </ng-container>
+
+  <!-- Checkbox -->
+  <ng-container *ngIf="type === 'checkbox'">
+    <ng-container *ngIf="checkItems">
+      <div [ngClass]="{'checkbox-container-inline': displayInline, 'checkbox-container-block': !displayInline}">
+        <div *ngFor="let item of checkItems; index as i" class="custom-checkbox">
+          <input [id]="'check' + item?.id + i" (focus)="onFocusTouchedDirty()" (change)="getEventCheckbox(item, i)" [disabled]="disabled" [checked]="item?.value" type="checkbox" class="input-checkbox">
+          <label [for]="'check' + item?.id + i" class="label-checkbox">{{item?.name}}</label>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!checkItems || !checkItems.length">
+      <div class="custom-checkbox checkbox-isolated" [ngClass]="{'force-switch-disable': disabled}">
+        <input [id]="id" [formControlName]="id" type="checkbox" class="input-checkbox">
+        <label [for]="id" class="label-checkbox">
+          {{labelCheckbox}}
+          <a *ngIf="subCheckboxLabel && labelLink" [target]="labelLinkTarget" [href]="labelLink">{{subCheckboxLabel}}</a>
+        </label>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <!-- Radio -->
+  <ng-container *ngIf="type === 'radio'">
+    <div *ngFor="let data of radioItems; let index = index;" [ngClass]="{'list-inline': displayInline, 'list-block': !displayInline}"  class="custom-radio">
+      <input type="radio"
+             [name]="id"
+             [id]="id + data.id"
+             [value]="data"
+             [disabled]="disabled"
+             [checked]="control.value?.id === data?.id || control.value === data?.id"
+             (change)="changeValueRadioButton(data)"
+             (focus)="onFocusTouchedDirty()"
+             [class.is-invalid]="control.errors || control.invalid && (control.dirty || control.touched)"
+             [class.is-valid]="!control.errors || control.valid">
+      <label class="custom-control-label" [for]="(id + data.id)">{{data.name}}</label>
+    </div>
+  </ng-container>
+
+  <!-- Icon and change icon from password -->
+  <ng-container *ngIf="iconInputClass">
+    <i (click)="changeType()" [class]="iconInputClass" [ngClass]="{'on-right-icon': onRight, 'on-left-icon': !onRight, 'icon-password': isPassword}" class="icon-input"></i>
+  </ng-container>
+
+  <!-- Disabled -->
+  <ng-container *ngIf="disabled && (type === 'checkbox' || type === 'switch')">
+    <div class="disable-content"></div>
+  </ng-container>
+
+  <!-- Messages errors -->
+  <span *ngIf="control?.invalid && (control?.dirty || control?.touched)" class="invalid-feedback">
+   <span *ngIf="control.errors?.['required']">{{invalidMsg}}</span>
+   <span *ngIf="control?.errors?.['email']">Preencha um e-mail válido.</span>
+   <span *ngIf="control?.errors?.['invalidDocument']">Documento inválido.</span>
+  </span>
+</div>

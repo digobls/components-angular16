@@ -1,0 +1,8 @@
+<app-default-sidebar (statusMenu)="checkStatusMenu($event)"></app-default-sidebar>
+<app-default-navbar></app-default-navbar>
+
+<div class="container-data" [ngClass]="menuIsOpen ? 'menu-open' : 'menu-close'">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

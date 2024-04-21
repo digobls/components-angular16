@@ -1,0 +1,187 @@
+<!-- Data table -->
+<ng-container *ngIf="!loadingList && listData?.length > 0">
+  <div class="container-default-simple-table offset-top-20">
+
+    <ng-container *ngIf="showDisplay || paginationInfo">
+      <div class="container-additional-table-info">
+        <!-- Displays -->
+        <ng-container *ngIf="showDisplay">
+          <div class="container-actions">
+            <div class="container-box displays">
+              <p>
+                <i class="ri-table-line"></i>
+                <i class="ri-arrow-down-s-fill icon-down"></i>
+              </p>
+
+              <div class="container-list-items">
+                <ng-container *ngFor="let data of listHeader; index as i">
+                  <div class="custom-checkbox">
+                    <input [id]="i" [(ngModel)]="data.isVisible" type="checkbox" class="input-checkbox">
+                    <label [for]="i" class="label-checkbox">{{data.label}}</label>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Pagination info -->
+        <ng-container *ngIf="paginationInfo && configPagination?.currentPage && totalPages && configPagination.totalRecordsPerPage && configPagination?.totalRecords">
+          <p class="info-pagination">Página {{ configPagination.currentPage }}/{{ totalPages }} - Exibindo {{ configPagination.totalRecordsPerPage }} de {{ configPagination.totalRecords }} registros.</p>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <!-- Table -->
+    <div class="table table-responsive default-simple-table">
+      <table class="table">
+        <thead>
+          <tr>
+          <ng-container *ngFor="let header of listHeader">
+            <th *ngIf="header.isVisible" (click)="sort(header.key, header.sortable)" [ngClass]="{'pointer': header.sortable, 'on-action': header.key === 'actions'}">
+              {{header.label}}
+              <span *ngIf="header.sortable" class="content-sort">
+                <i class="ri-expand-up-down-line" *ngIf="header.sortOrder !== 'asc' && header.sortOrder !== 'desc'"></i>
+                <i class="ri-arrow-up-s-fill" *ngIf="header.sortOrder === 'asc'"></i>
+                <i class="ri-arrow-down-s-fill" *ngIf="header.sortOrder === 'desc'"></i>
+              </span>
+            </th>
+          </ng-container>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let row of listData; index as i">
+          <ng-container *ngFor="let header of listHeader">
+            <td *ngIf="header.isVisible" [ngClass]="{'on-action': header.key === 'actions'}">
+              <ng-container *ngIf="header.key !== 'actions' && !header.usePipe">
+                <p>{{row[header.key] ? row[header.key] : '-' }}</p>
+              </ng-container>
+
+              <ng-container *ngIf="header.key !== 'actions' && header.usePipe">
+                <ng-container *ngIf="header.isJson">
+                  <p>{{row[header.key] | readJson: header.jsonKey}}</p>
+                </ng-container>
+                <ng-container *ngIf="header.isDate">
+                  <p>{{row[header.key] | date: 'dd/MM/yyyy'}}</p>
+                </ng-container>
+                <ng-container *ngIf="header.isCurrency">
+                  <p>{{row[header.key] | currency:'BRL':'symbol':'1.2-2'}}</p>
+                </ng-container>
+                <ng-container *ngIf="header.isPhone">
+                  <p>{{row[header.key] | phoneMask}}</p>
+                </ng-container>
+                <ng-container *ngIf="header.isDocument">
+                  <p>{{row[header.key] | documentMask}}</p>
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="header.key === 'actions'">
+                <div class="show-more-action">
+                  <button [id]="'showAction' + i" type="button">
+                    <i class="ri-more-fill"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <ng-container *ngFor="let action of header.actions">
+                      <a *ngIf="action?.link && !action?.demo"
+                         [routerLink]="action?.pathname || action?.params ? createLink(action, row) : action.link"
+                         [queryParams]="action?.pathname || action?.params ? createParams(action, row) : null"
+                         [target]="action?.target ? action?.target : '_self'">
+                        <ng-container *ngTemplateOutlet="executeActionTemplate; context: { action: action }"></ng-container>
+                      </a>
+
+                      <a *ngIf="action?.externalLink && !action?.demo" [href]="action.externalLink" [target]="action?.target ? action?.target : '_self'">
+                        <ng-container *ngTemplateOutlet="executeActionTemplate; context: { action: action }"></ng-container>
+                      </a>
+
+                      <a *ngIf="(!action?.link && !action?.externalLink) || action?.demo" (click)="executeAction(action, row, i)">
+                        <ng-container *ngTemplateOutlet="executeActionTemplate; context: { action: action }"></ng-container>
+                      </a>
+
+                      <ng-template #executeActionTemplate>
+                        <i [class]="action?.icon" [ngClass]="{
+                             'ri-eye-line': action?.type === 'view' && !action?.icon,
+                             'ri-edit-2-line': action?.type === 'edit' && !action?.icon,
+                             'ri-delete-bin-line': action?.type === 'delete' && !action?.icon
+                           }">
+                        </i>
+                        <span *ngIf="action?.label">{{action.label}}</span>
+                      </ng-template>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+            </td>
+          </ng-container>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination and total items per page -->
+    <ng-container *ngIf="startTotalPages > 1">
+      <div class="container-pagination-total-per-page">
+        <div class="container-pagination">
+          <button
+            class="pagination-button"
+            [disabled]="configPagination.currentPage === 1"
+            (click)="goToPage(1)">
+            <i class="ri-arrow-left-double-line"></i>
+          </button>
+
+          <button
+            class="pagination-button"
+            [disabled]="configPagination.currentPage === 1"
+            (click)="previousPage()">
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+
+          <ng-container *ngFor="let page of pagesToShow">
+            <button
+              class="pagination-button"
+              [class.active]="configPagination.currentPage === page"
+              (click)="goToPage(page)">
+              {{ page }}
+            </button>
+          </ng-container>
+
+          <button
+            class="pagination-button"
+            [disabled]="configPagination.currentPage === totalPages"
+            (click)="nextPage()">
+            <i class="ri-arrow-right-s-line"></i>
+          </button>
+
+          <button
+            class="pagination-button"
+            [disabled]="configPagination.currentPage === totalPages"
+            (click)="goToPage(totalPages)">
+            <i class="ri-arrow-right-double-fill"></i>
+          </button>
+        </div>
+
+        <ng-container *ngIf="showChangeTotal">
+          <div class="items-per-page-container">
+            <label class="total-page-info">Itens por página:</label>
+            <div class="container-total">
+              <span>{{configPagination.totalRecordsPerPage}}</span>
+
+              <div class="container-values">
+                <ng-container *ngFor="let value of itemsPerPageOptions">
+                  <div (click)="onChangeItemsPerPage(value)" class="list-total">
+                    <span *ngIf="value !== configPagination.totalRecordsPerPage && configPagination.totalRecords >= value">{{value}}</span>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<!-- Data loading table -->
+<ng-container *ngIf="loadingList">
+  <!-- Config your loading layout -->
+</ng-container>

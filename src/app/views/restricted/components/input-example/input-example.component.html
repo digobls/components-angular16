@@ -1,0 +1,127 @@
+<div class="col-12 box-rounded-white offset-top-20">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-title-description">
+        <h4>Input</h4>
+        <p>Configurações aplicadas do input</p>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <app-input-type
+            [formGroup]="formInput"
+            [id]="'type'"
+            [name]="'type'"
+            [type]="'select'"
+            [label]="'Tipo do botão'"
+            [placeholder]="'Selecione o tipo'"
+            [listDrop]="listType"
+            [loadingData]="false"
+            [searchSelect]="true"
+            [disabled]="false"
+            [multiple]="false"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2">
+          <app-input-type
+            [formGroup]="formInput"
+            [id]="'label'"
+            [name]="'label'"
+            [type]="'text'"
+            [label]="'Label'"
+            [placeholder]="'Label'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div class="col-2">
+          <app-input-type
+            [formGroup]="formInput"
+            [id]="'placeholder'"
+            [name]="'placeholder'"
+            [type]="'text'"
+            [label]="'Placeholder'"
+            [placeholder]="'Placeholder'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+        <div *ngIf="formInput.get('type')?.value === 'text'" class="col-2">
+          <app-input-type
+            [formGroup]="formInput"
+            [id]="'mask'"
+            [name]="'mask'"
+            [type]="'text'"
+            [label]="'Mascara'"
+            [placeholder]="'Aceita 0 . - /'"
+            [showLabel]="true">
+          </app-input-type>
+        </div>
+      </div>
+      <div class="col-12"></div>
+      <div class="col-3 offset-top-20">
+        <app-input-type
+          [formGroup]="formInput"
+          [id]="'disable'"
+          [name]="'disable'"
+          [type]="'checkbox'"
+          [labelCheckbox]="'Desabilitar'"
+          [showLabel]="false"
+          [displayInline]="true">
+        </app-input-type>
+      </div>
+      <div *ngIf="formInput.get('type')?.value === 'select'" class="col-3 offset-top-20">
+        <app-input-type
+          [formGroup]="formInput"
+          [id]="'multiple'"
+          [name]="'multiple'"
+          [type]="'checkbox'"
+          [labelCheckbox]="'Multiplo valores'"
+          [showLabel]="false"
+          [displayInline]="true">
+        </app-input-type>
+      </div>
+      <div *ngIf="formInput.get('type')?.value === 'checkbox'" class="col-3 offset-top-20">
+        <app-input-type
+          [formGroup]="formInput"
+          [id]="'listCheck'"
+          [name]="'listCheck'"
+          [type]="'checkbox'"
+          [labelCheckbox]="'Lista de checkbox'"
+          [showLabel]="false"
+          [displayInline]="true">
+        </app-input-type>
+      </div>
+    </div>
+
+    <div class="col-12 offset-top-20">
+      <app-input-type
+        [formGroup]="formInput"
+        [id]="'input'"
+        [name]="'input'"
+        [type]="formInput.get('type')?.value"
+        [label]="formInput.get('label')?.value"
+        [placeholder]="formInput.get('placeholder')?.value"
+        [disabled]="formInput.get('disable')?.value"
+        [mask]="formInput.get('mask')?.value"
+        [iconClass]="'ri-search-line'"
+        [listDrop]="listNames"
+        [bindLabel]="'name'"
+        [searchSelect]="true"
+        [multiple]="formInput.get('multiple')?.value"
+        [labelCheckbox]="'Exemplo de checkbox'"
+        [checkItems]="listCheckbox"
+        [radioItems]="listTypeContact"
+        [displayInline]="true"
+        [showLabel]="true"
+        [showRequiredLabel]="false"
+        [isRequired]="true">
+      </app-input-type>
+    </div>
+    <div *ngIf="formInput.get('input')?.value" class="col-12 offset-top-10 content-value">
+      <p>Valor:</p>
+      <pre *ngIf="(!formInput.get('input')?.value?.id && !formInput.get('input')?.value?.length) || formInput.get('input')?.value == false">{{formInput.get('input')?.value}}</pre>
+      <pre *ngIf="formInput.get('input')?.value?.id">{{JSON.stringify(formInput.get('input')?.value, null, 2)}}</pre>
+      <pre *ngIf="formInput.get('input')?.value?.length">{{formInput.get('input')?.value | json}}</pre>
+    </div>
+  </div>
+</div>

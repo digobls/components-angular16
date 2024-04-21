@@ -1,0 +1,25 @@
+<div class="col-12 box-rounded-white offset-top-20">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-title-description">
+        <h4>Container vazio</h4>
+        <p>Configurações aplicadas do empty box</p>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <app-default-empty-box
+        [loadingData]="false"
+        [removeShadow]="true"
+        [title]="formEmpty.get('title')?.value"
+        [description]="formEmpty.get('description')?.value"
+        [descriptionHtml]="formEmpty.get('descriptionHtml')?.value"
+        [descriptionContinue]="formEmpty.get('descriptionContinue')?.value"
+        [textLink]="formEmpty.get('textLink')?.value"
+        [link]="formEmpty.get('link')?.value"
+        [textBtn]="formEmpty.get('textBtn')?.value"
+        (sendDataAction)="onAction($event)">
+      </app-default-empty-box>
+    </div>
+  </div>
+</div>
