@@ -5,8 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { provideNgxMask } from 'ngx-mask';
-import {NgSelectModule} from "@ng-select/ng-select";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgSelectModule,
     ReactiveFormsModule,
     FormsModule
   ],
