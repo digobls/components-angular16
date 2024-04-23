@@ -86,8 +86,8 @@ $bg-input: #eef2f7;
                 &:after {
                   content: '';
                   position: absolute;
-                  left: 11.5px;
-                  top: 16.4px;
+                  left: 12.1px;
+                  top: 16px;
                   width: 2px;
                   height: 2px;
                   background: #fff;
@@ -145,8 +145,8 @@ $bg-input: #eef2f7;
               &:after {
                 content: '';
                 position: absolute;
-                left: 11.5px;
-                top: 16.4px;
+                left: 12.1px;
+                top: 16px;
                 width: 2px;
                 height: 2px;
                 background: #fff;
@@ -254,6 +254,7 @@ $bg-input: #eef2f7;
         tr {
           td {
             vertical-align: middle;
+            background: transparent;
 
             p {
               margin: 0;

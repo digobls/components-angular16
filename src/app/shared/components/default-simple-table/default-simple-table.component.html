@@ -84,8 +84,8 @@
                   <div class="dropdown-menu">
                     <ng-container *ngFor="let action of header.actions">
                       <a *ngIf="action?.link && !action?.demo"
-                         [routerLink]="action?.pathname || action?.params ? createLink(action, row) : action.link"
-                         [queryParams]="action?.pathname || action?.params ? createParams(action, row) : null"
+                         [routerLink]="action?.pathname ? createLink(action, row) : action.link"
+                         [queryParams]="action?.params ? createParams(action, row) : null"
                          [target]="action?.target ? action?.target : '_self'">
                         <ng-container *ngTemplateOutlet="executeActionTemplate; context: { action: action }"></ng-container>
                       </a>

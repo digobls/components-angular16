@@ -45,11 +45,9 @@ export class DefaultSimpleTableComponent implements OnInit, OnChanges {
     this.calculateTotalPages();
     this.calculatePagesToShow();
 
-    if (this.showDisplay) {
-      this.listHeader.forEach((value: any) => {
-        value.isVisible = true;
-      });
-    }
+    this.listHeader.forEach((value: any) => {
+      value.isVisible = true;
+    });
   }
 
   // Sort item from header

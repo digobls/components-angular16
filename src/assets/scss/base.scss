@@ -7,15 +7,17 @@ body {
   margin: 0;
 }
 
+.container-data {
+  transition: margin-left 600ms ease;
+}
+
 // Menu
 .menu-open {
   margin-left: 200px;
-  transition: width 0.3s ease-in-out;
 }
 
 .menu-close {
   margin-left: 74px;
-  transition: width 0.3s ease-in-out;
 }
 
 // Modal

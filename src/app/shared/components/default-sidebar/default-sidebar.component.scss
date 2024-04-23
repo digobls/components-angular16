@@ -1,3 +1,8 @@
+$background-menu: #fff;
+$color-text: #474747;
+$color-icon: #2C2C2D;
+$color-active: #192c70;
+
 .default-sidebar {
   position: fixed;
   left: 0;
@@ -5,7 +10,7 @@
   bottom: 0;
   width: 74px;
   z-index: 10;
-  background-color: var(--background-menu);
+  background-color: $background-menu;
   transition: width 0.3s ease-in-out;
   box-shadow: 0 2px 6px rgba(47, 43, 61, 0.14), 0 0 transparent, 0 0 transparent;
 
@@ -48,7 +53,7 @@
 
           i {
             cursor: pointer;
-            color: #2C2C2D;
+            color: $color-icon;
           }
         }
       }
@@ -82,7 +87,7 @@
         transition: transform 0.25s ease;
 
         i {
-          color: #474747;
+          color: $color-text;
           margin-right: 8px;
         }
 
@@ -90,7 +95,7 @@
           display: inline-block;
           margin-top: 1px;
           font-size: 14px;
-          color: #474747;
+          color: $color-text;
           font-weight: 400;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -98,7 +103,7 @@
         }
 
         &:hover {
-          background: #192c70;
+          background: $color-active;
 
           i, span {
             color: #FFF;
@@ -107,7 +112,7 @@
       }
 
       .active {
-        background: #192c70;
+        background: $color-active;
 
         i, span {
           color: #FFF;
