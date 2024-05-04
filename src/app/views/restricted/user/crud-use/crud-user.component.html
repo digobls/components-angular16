@@ -176,9 +176,9 @@
         </app-input-type>
       </div>
       <div class="container-btn-bottom offset-top-10">
-        <button (click)="cancel()" [disabled]="loadingSend" class="button-default btn-transparent">
+        <a routerLink="/usuario" class="button-default btn-transparent">
           <span>Cancelar</span>
-        </button>
+        </a>
         <app-default-button
           [id]="'registerUser'"
           [text]="userId ? 'Salvar alterações' : 'Cadastrar'"

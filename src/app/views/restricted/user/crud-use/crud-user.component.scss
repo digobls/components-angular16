@@ -27,6 +27,7 @@
       border: 1px solid #2f23d6;
       color: #2f23d6;
       height: 38px;
+      line-height: 36px;
       font-size: 14px;
       min-width: 120px;
       cursor: pointer;
@@ -34,6 +35,8 @@
       display: inline-block;
       margin-right: 14px;
       font-weight: 500;
+      text-decoration: none;
+      text-align: center;
     }
 
     app-default-button {

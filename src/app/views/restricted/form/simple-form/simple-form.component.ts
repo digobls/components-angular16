@@ -13,7 +13,7 @@ export class SimpleFormComponent implements OnInit {
   isDisable = false;
 
   formUser: FormGroup = new FormGroup({
-    name: new  FormControl( null, [Validators.required]),
+    name: new  FormControl( null, [Validators.required, Validators.min(5)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     phone: new FormControl(null, [Validators.required]),
     documentNumber: new FormControl(null, [Validators.required, GenericValidator.CPFCNPJ]),
@@ -81,7 +81,7 @@ export class SimpleFormComponent implements OnInit {
       password2: 'rodrigo2',
       language: 'c4c7',
       options: 'Rodrigo Pereira',
-      roles: [{id: '1', name: 'Analista'}, {id: '3', name: 'Cordenador'}],
+      roles: [{id: '2', name: 'Analista'}, {id: '4', name: 'Cordenador'}],
       tags: ['dsada', 'qqqq'],
       money: '1500',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',

@@ -1,3 +1,6 @@
+$loadingColor: #E6E9EC;
+$loadingChangeColor: #FFF;
+
 .loading-on-element-custom {
   -webkit-animation-duration: 2.25s;
   animation-duration: 2.25s;
@@ -9,9 +12,9 @@
   animation-name: placeHolderShimmer;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
-  background: #E6E9EC;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #E6E9EC), color-stop(18%, #FFFFFF), color-stop(33%, #E6E9EC));
-  background: linear-gradient(to right, #E6E9EC 8%, #FFFFFF 18%, #E6E9EC 33%);
+  background: $loadingColor;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, $loadingColor), color-stop(18%, $loadingChangeColor), color-stop(33%, $loadingColor));
+  background: linear-gradient(to right, $loadingColor 8%, $loadingChangeColor 18%, $loadingColor 33%);
   background-size: 800px 104px;
   height: 14px;
   border-radius: 2px;
